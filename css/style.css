@@ -1,0 +1,35 @@
+body {
+	background-color: #F1F1F1;
+}
+
+#reaction-container {
+	visibility: hidden;
+    position: absolute;
+	width: 500px;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 20px;
+}
+
+#reaction-container #name {
+	text-align: right;
+	font-style: italic;
+}
+
+#form-container {
+	width: 455px;
+	height: 210px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#form-container #submit {
+	float: right;
+}

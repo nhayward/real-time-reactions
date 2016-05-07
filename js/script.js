@@ -30,7 +30,7 @@ $(document).ready(function() {
 				url: "update_data.php",
 				data: {reactions: JSON.stringify(reactions)}
             });
-			$("#comment_form").reset();
+			$("#comment_form").trigger("reset");
 		}
 		return false;
 	});

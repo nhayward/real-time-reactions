@@ -19,4 +19,12 @@ $(document).ready(function() {
 	}
 
 	showReactions();
+
+	$.ajax({
+		type: "GET",
+		url: "php/twitterGet.php"
+	})
+	.done(function(data) {
+		console.log(data);
+	});
 });

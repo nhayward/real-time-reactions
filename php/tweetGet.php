@@ -9,8 +9,10 @@ $settings = array(
     'consumer_secret' => "5jJmpTri1MaxicJss4Sl7kjKrqxExDwy4gsDKmsxxSpplCODjY"
 );
 
-$url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfields = '?q=%23webdesignservices&src=typd&count=100&result_type=recent';
+$tweetID = $_POST['tweetId'];
+
+$url = 'https://api.twitter.com/1.1/statuses/oembed.json';
+$getfields = '?id=' . $tweetID;
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);

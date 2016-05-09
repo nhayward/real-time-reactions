@@ -18,13 +18,23 @@ $(document).ready(function() {
 		}, 13000);
 	}
 
-	showReactions();
+	// showReactions();
 
 	$.ajax({
 		type: "GET",
-		url: "php/twitterGet.php"
+		url: "php/hashtagGet.php"
 	})
 	.done(function(data) {
-		console.log(data);
+		$(JSON.parse(data).statuses).each(function() {
+			$.ajax({
+				type: "POST",
+				url: "php/tweetGet.php",
+				dataType: "json",
+				data: ({tweetId: $(this)[0].id_str})
+			})
+			.done(function(tweetData) {
+				console.log(tweetData.html);
+			});
+		});
 	});
 });

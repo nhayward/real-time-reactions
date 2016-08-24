@@ -4,6 +4,7 @@ $(document).ready(function() {
 			alert("Please fill out all fields!");
 		} else {
 			reactions.push({reaction: $("#message").val(), name: $("#your-name").val()});
+			console.log(reactions);
 			$.ajax({
 				type: "POST",
 				url: "php/updateData.php",

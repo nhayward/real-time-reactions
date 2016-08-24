@@ -2,23 +2,26 @@ $(document).ready(function() {
 	var i = reactions.length - 1;
 
 	function showReactions() {
-		if ( i == -1 ) {
-			location.reload();
-		}
+		$("#reaction-container").append("<br /><div id='name'></div>");
 		$("#reaction").text("\"" + reactions[i].reaction + "\"");
 		$("#name").text("-" + reactions[i].name);
-		$("#reaction-container").height($("#reaction").height() + 46);
 		$("#reaction-container").css('visibility','visible').hide().fadeIn(3000);
 		setTimeout(function() {
 			$("#reaction-container").fadeOut(3000);
 		}, 10000);
 		setTimeout(function() {
 			i--;
-			setTimeout(showReactions(), 3000);
+			if (i == -1 && j == tweets.length) {
+				location.reload();
+			} else if (j == tweets.length) {
+				setTimeout(showReactions(), 3000);
+			} else {
+				setTimeout(showTweets(), 3000);
+			}
 		}, 13000);
 	}
 
-	// showReactions();
+	showReactions();
 
 	var tweets = [];
 
@@ -29,22 +32,24 @@ $(document).ready(function() {
 	var j = 0;
 
 	function showTweets() {
-		if (j > tweets.length - 1) {
-			j = 0;
-		}
+		$("#reaction-container br, #name").remove();
 		$("#reaction").html(tweets[j]);
-		// $("#reaction-container").height($("#reaction").height() + 46);
 		$("#reaction-container").css('visibility','visible').hide().fadeIn(3000);
 		setTimeout(function() {
 			$("#reaction-container").fadeOut(3000);
 		}, 10000);
 		setTimeout(function() {
 			j++;
-			setTimeout(showTweets(), 3000);
+			if (i == -1 && j == tweets.length) {
+				location.reload();
+			} else if (i == -1) {
+				setTimeout(showTweets(), 3000);
+			} else {
+				setTimeout(showReactions(), 3000);
+			}
 		}, 13000);
 	}
 
-	showTweets();
 
 	$.ajax({
 		type: "GET",

@@ -20,7 +20,7 @@ body {
 	font-style: italic;
 }
 
-.text-box {
+#reaction-container.text-box {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 20px 30px;
@@ -38,6 +38,10 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+#form-container #submitMessage {
+    display: none;
 }
 
 #form-container #submit {

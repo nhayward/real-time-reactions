@@ -10,7 +10,7 @@ $settings = array(
 );
 
 $url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfields = '?f=tweets&vertical=default&q=%23nickandcarlyreception92416&src=typd&count=100&result_type=recent';
+$getfields = '?f=tweets&vertical=default&q=%23bornwardbound&src=typd&count=100&result_type=recent';
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);

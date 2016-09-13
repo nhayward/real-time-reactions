@@ -1,10 +1,14 @@
 $(document).ready(function() {
+
+	// start text reactions
 	var i = reactions.length - 1;
 
 	function showReactions() {
-		$("#reaction-container").append("<br /><div id='name'></div>");
-		$("#reaction").text("\"" + reactions[i].reaction + "\"");
-		$("#name").text("-" + reactions[i].name);
+		if ($("#name").length === 0) {
+			$("#reaction-container").append("<br /><div id='name'></div>");
+		}
+		$("#reaction").html("\"" + reactions[i].reaction + "\"");
+		$("#name").html("-" + reactions[i].name);
 		$("#reaction-container").css('visibility','visible').hide().fadeIn(3000);
 		setTimeout(function() {
 			$("#reaction-container").fadeOut(3000);
@@ -21,8 +25,8 @@ $(document).ready(function() {
 		}, 13000);
 	}
 
-	showReactions();
 
+	// start tweet gathering
 	var tweets = [];
 
 	function gatherTweets(tweet) {
@@ -34,7 +38,9 @@ $(document).ready(function() {
 	function showTweets() {
 		$("#reaction-container br, #name").remove();
 		$("#reaction").html(tweets[j]);
-		$("#reaction-container").css('visibility','visible').hide().fadeIn(3000);
+		setTimeout(function() {
+			$("#reaction-container").css('visibility','visible').hide().fadeIn(3000);
+		}, 500);
 		setTimeout(function() {
 			$("#reaction-container").fadeOut(3000);
 		}, 10000);
@@ -68,4 +74,8 @@ $(document).ready(function() {
 			});
 		});
 	});
+
+
+	// initialize the whole thing
+	showReactions();
 });

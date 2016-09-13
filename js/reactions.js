@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var i = reactions.length - 1;
 
 	function showReactions() {
+		$("#reaction-container").addClass("text-box");
 		if ($("#name").length === 0) {
 			$("#reaction-container").append("<br /><div id='name'></div>");
 		}
@@ -36,6 +37,7 @@ $(document).ready(function() {
 	var j = 0;
 
 	function showTweets() {
+		$("#reaction-container").removeClass("text-box");
 		$("#reaction-container br, #name").remove();
 		$("#reaction").html(tweets[j]);
 		setTimeout(function() {
